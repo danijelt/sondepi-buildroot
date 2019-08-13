@@ -1,0 +1,16 @@
+export PATH="/bin:/sbin:/usr/bin:/usr/sbin"
+export PS1='\e[1;32msondepi\e[0m \W # '
+
+export PAGER='/bin/less'
+export EDITOR='/bin/vi'
+
+alias l='ls -ahl'
+alias ..='cd ..'
+
+# Source configuration files from /etc/profile.d
+for i in /etc/profile.d/*.sh ; do
+	if [ -r "$i" ]; then
+		. $i
+	fi
+done
+unset i

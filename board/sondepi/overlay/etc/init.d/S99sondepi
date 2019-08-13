@@ -1,0 +1,27 @@
+#!/bin/sh
+#
+# Start/stop SondePi
+#
+
+DAEMON=/usr/bin/sondepi
+PIDFILE=/var/run/sondepi.pid
+
+case "$1" in
+  start)
+	echo "Starting SondePi..."
+	start-stop-daemon -S --background --make-pidfile -x "$DAEMON" -p "$PIDFILE"
+	;;
+  stop)
+	echo "Stopping SondePi..."
+	start-stop-daemon -K --remove-pidfile -x "$DAEMON" -p "$PIDFILE" -o
+	;;
+  restart)
+	"$0" stop
+	sleep 1
+	"$0" start
+	;;
+  *)
+	echo "Usage: $0 {start|stop|restart}"
+	exit 1
+esac
+

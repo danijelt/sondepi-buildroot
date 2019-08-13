@@ -1,0 +1,4 @@
+kernel=zImage
+dtoverlay=pi3-disable-bt
+
+gpu_mem=256
