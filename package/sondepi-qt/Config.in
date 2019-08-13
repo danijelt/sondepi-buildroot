@@ -1,0 +1,9 @@
+config BR2_PACKAGE_SONDEPI_QT
+	bool "sondepi"
+	depends on BR2_PACKAGE_QT5
+	select BR2_PACKAGE_QT5BASE
+	select BR2_PACKAGE_QT5LOCATION
+	select BR2_PACKAGE_QT5QUICKCONTROLS2
+	select BR2_PACKAGE_QT5VIRTUALKEYBOARD
+	help
+	  Radiosonde tracking software designed for Raspberry Pi.
