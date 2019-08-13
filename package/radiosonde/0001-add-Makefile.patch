@@ -1,0 +1,21 @@
+diff --git a/Makefile b/Makefile
+new file mode 100644
+index 0000000..f334959
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,15 @@
++SRC = $(BIN).c
++OBJ = $(SRC:.c=.o)
++
++INCLUDES += -I./ecc
++LDFLAGS += -lm
++
++$(BIN): $(OBJ)
++	$(CROSS_COMPILE)$(CC) -o $(BIN) $(OBJ) $(LDFLAGS)
++
++$(OBJ): $(SRC)
++	$(CROSS_COMPILE)$(CC) -o $(OBJ) -c $(SRC) $(INCLUDES)
++
++.PHONY: clean
++clean:
++	$(RM) -f $(OBJ) $(BIN)
