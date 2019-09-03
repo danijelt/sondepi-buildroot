@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-SONDEPI_QT_VERSION = c5b54e45b0c56bdbaddc0a614b806e7f0e5d1a37
+SONDEPI_QT_VERSION = f82d9c05f0b0649f3c67fef838b21366b6735e7e
 SONDEPI_QT_SITE = git@github.com:danijelt/sondepi-qt.git
 SONDEPI_QT_SITE_METHOD = git
 
