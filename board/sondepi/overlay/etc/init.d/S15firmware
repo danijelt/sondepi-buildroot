@@ -1,0 +1,19 @@
+#!/bin/sh
+#
+# Load brcmfmac43455 firmware in case it failed earlier
+#
+
+case "$1" in
+  start)
+	if [ -f /sys/devices/platform/soc/3f300000.mmc/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/firmware/brcm!brcmfmac43455-sdio.bin/loading ]; then
+		echo 1 > /sys/devices/platform/soc/3f300000.mmc/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/firmware/brcm!brcmfmac43455-sdio.bin/loading
+		cat /lib/firmware/brcm/brcmfmac43455-sdio.bin > /sys/devices/platform/soc/3f300000.mmc/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/firmware/brcm!brcmfmac43455-sdio.bin/data
+		echo 0 > /sys/devices/platform/soc/3f300000.mmc/mmc_host/mmc1/mmc1:0001/mmc1:0001:1/firmware/brcm!brcmfmac43455-sdio.bin/loading
+	fi
+	exit 0
+	;;
+  *)
+	echo "Usage: $0 {start}"
+	exit 1
+esac
+
